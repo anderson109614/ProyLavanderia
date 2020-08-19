@@ -1,0 +1,155 @@
+<div class="row">
+    <div class="col-md-12">
+      <div class="card ">
+  
+  
+        <div class="card-header ">
+          Prendas
+          <button type="button"  data-toggle="modal" data-target="#myModal"
+          class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret"
+          style="float: right;" >
+          <i class="now-ui-icons ui-1_simple-add"></i>
+        </button>
+        </div>
+        <div class="card-body ">
+          <div class="table-responsive"  >
+            <table class="table">
+              <thead class=" text-primary">
+                <th>
+                  Fecha
+                </th>
+                <th>
+                  Total
+                </th>
+               
+                <th>
+                  
+                </th>
+              </thead>
+              <tbody>
+                <tr  *ngFor="let item of items | async">
+                  <td>
+                    {{item.Nombre}}
+                  </td>
+                  <td >
+                    {{item.Precio}} $ 
+                  </td>
+                 
+                  
+                  <td>
+  
+                    <button  type="button"   (click)="selectEdit(item)" data-toggle="modal" data-target="#myModalEdit"
+                      class="btn btn-round btn-outline-default btn-simple btn-icon no-caret" >
+                      <i class="now-ui-icons design-2_ruler-pencil"></i>
+                    </button>
+                   
+
+  
+                  </td>
+                  <td>
+                    <button  type="button" (click)="deleteItem(item.key)"
+                    class="btn btn-round btn-outline-default btn-simple btn-icon no-caret" >
+                    <i class="now-ui-icons ui-1_simple-remove"></i>
+                  </button>
+                  </td>
+  
+                </tr>
+  
+              </tbody>
+            </table>
+          </div>
+        </div>
+  
+  
+      </div>
+    </div>
+  </div>
+
+  
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+style="display: none;">
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            
+            <h2 class="modal-title">Nueva Prenda</h2>
+        </div>
+        <div class="modal-body">
+           <div class="row">
+            <div class="col-md-12 ">
+                <div class="form-group">
+                    <label>Nombre</label>
+                    <input type="text" id="txtNombreNew"   class="form-control">
+                </div>
+            </div>
+        </div>
+            <br>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="form-group">
+                        <label >Precio</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="txtPrecioNew" placeholder="0.00">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            
+
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" (click)="GuardarNewProducto()">Guardar</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+        </div>
+    </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+</div>
+<div class="modal fade" id="myModalEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+style="display: none;">
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h2 class="modal-title">Editar Producto</h2>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="form-group">
+                        <label >Nombre</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="txtNombreEdit" placeholder="Nombre"
+                              >
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="form-group">
+                        <label >Precio</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="txtPrecioEdit" placeholder="0.00">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            
+
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" (click)="EditarProductoProducto()">Guardar</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+        </div>
+    </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+</div>

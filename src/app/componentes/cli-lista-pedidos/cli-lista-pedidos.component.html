@@ -1,0 +1,63 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card ">
+
+
+      <div class="card-header ">
+        Pedidos Realisados
+        <button type="button" [routerLink]="['/NewPedidos']"
+        class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret"
+        style="float: right;" >
+        <i class="now-ui-icons ui-1_simple-add"></i>
+      </button>
+      </div>
+      <div class="card-body ">
+        <div class="table-responsive" *ngIf="items$ | async; let items; " >
+          <table class="table">
+            <thead class=" text-primary">
+              <th>
+                Fecha
+              </th>
+              <th>
+                Total
+              </th>
+              <th>
+                Estado
+              </th>
+              <th>
+                
+              </th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of ListaPedidosCli">
+                <td>
+                  {{ item.payload.val().Fecha }}
+                </td>
+                <td >
+                  {{ item.payload.val().Total.toFixed(2) }} $
+                </td>
+                <td>
+                  <span class="badge badge-success">{{ item.payload.val().Estado }}</span>
+                </td>
+                
+                <td>
+
+                  <button [routerLink]="['/DetallePedido/',item.payload.key]" type="button"
+                    class="btn btn-round btn-outline-default btn-simple btn-icon no-caret" >
+                    <i class="now-ui-icons design_bullet-list-67"></i>
+                  </button>
+
+
+                </td>
+
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>

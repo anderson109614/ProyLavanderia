@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "proyectolavanderia-65e97": {
+      "hosting": {
+        "ProyLavanderia": [
+          "proyectolavanderia-65e97"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "proyectolavanderia-65e97"
+  }
+}

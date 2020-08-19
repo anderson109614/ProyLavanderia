@@ -1,0 +1,198 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card ">
+
+
+            <div class="card-header ">
+                Detalle Pedido
+
+            </div>
+            <div class="card-body ">
+                <div class="row">
+                    <div class="col-md-4 ">
+                        <div class="form-group">
+                            <label>Cedula</label>
+                            <input type="text" value="{{cliente.__zone_symbol__value.Cedula}}" readonly="true" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-4 ">
+                        <div class="form-group">
+                            <label>Fecha</label>
+                            <input type="text" value="{{fecha}}" readonly="true" class="form-control">
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="row">
+                    <div class="col-md-4 ">
+                        <div class="form-group">
+                            <label>Nombre</label>
+                            <input type="text" value="{{cliente.__zone_symbol__value.Nombre}}" readonly="true" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-4 ">
+                        <div class="form-group">
+                            <label>Apellido</label>
+                            <input type="text" value="{{cliente.__zone_symbol__value.Apellido}}" readonly="true" class="form-control">
+                        </div>
+                    </div>
+                   
+
+                </div>
+                <div class="row">
+                    <div class="col-md-8 ">
+                        <div class="form-group">
+                            <label>Direccion</label>
+                            <input type="text" value="{{cliente.__zone_symbol__value.Direccion}}" readonly="true" class="form-control">
+                        </div>
+                    </div>
+                    
+                   
+
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <h3>Repartidor</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 ">
+                        <div class="form-group">
+                            <label>Cedula</label>
+                            <input type="text" value="{{CedulaRepartidor}}" readonly="true" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-4 ">
+                        <button *ngIf="estado!='ENTREGADO'" type="button" class="btn btn-round btn-outline-default  btn-simple "
+                            style="float: right;" data-toggle="modal" data-target="#myModal">
+                            REPARTIDOR <i class="now-ui-icons ui-1_simple-add"></i>
+                        </button>
+                    </div>
+                    
+                </div>
+                <div class="row">
+                    <div class="col-md-8 ">
+                        <div class="form-group">
+                            <label>Nombre</label>
+                            <input type="text" value="{{NombreRepartidor}}" readonly="true" class="form-control">
+                        </div>
+                    </div>
+                    
+                   
+
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class=" text-primary">
+                            <th>
+                                Prenda
+                            </th>
+                            <th>
+                                Precio
+                            </th>
+                            <th>
+                                Cant.
+                            </th>
+                            <th>
+                                Sub. Total
+                            </th>
+                            <th>
+
+                            </th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let itemP of listaDetalle ">
+                                <td>
+                                    {{itemP.Nombre}}
+                                </td>
+                                <td>
+                                    {{itemP.Cantidad}}
+                                </td>
+                                <td>
+                                    {{itemP.Precio.toFixed(2)}}$
+                                </td>
+                                <td>
+                                    {{itemP.subTotal.toFixed(2)}}$
+                                </td>
+
+                                
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row">
+                    <div class="col-md-7">
+                        
+                    </div>
+                    <div class="col-md-2 ">
+                        <div class="form-group">
+                            
+                            <input type="text" style="text-align:right;" value="{{total.toFixed(2)}} $" readonly="true" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <button *ngIf="estado!='ENTREGADO'" style="float: right;" class="btn btn-primary btn-block" (click)="guardar()">GUARDAR</button>
+                </div>
+               
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<!--Modal-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+    style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                
+                <h2 class="modal-title">Lista de Repartidores</h2>
+            </div>
+            <div class="modal-body" *ngIf="items$ | async; let items; " >
+                
+                <table class="table">
+                    <thead>
+                        <td class="table-text">
+                            NOMBRE
+                        </td>
+                        <td class="table-text">
+                            CEDULA
+                        </td>
+                    </thead>
+                    <tbody>
+                        <tr data-dismiss="modal" class="table-row" *ngFor="let item of listFiltrada"  
+                        (click)="asignar(item.payload.val().Nombre+' '+item.payload.val().Apellido, item.payload.val().Cedula,item.payload.key)"  >
+                            <td class="table-img">
+                                {{ item.payload.val().Nombre }} {{ item.payload.val().Apellido }}
+                            </td> 
+                            <td class="table-text">
+                                <!--
+                                <h6> {{ item.payload.val().Fecha }}</h6>
+                                <p>{{ item.payload.val().Total }}</p>-->
+                                {{ item.payload.val().Cedula }}
+                            </td>
+                            
+
+
+                            <td>
+                                <i class="fa fa-plus-square icon-state-warning"></i>
+
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>

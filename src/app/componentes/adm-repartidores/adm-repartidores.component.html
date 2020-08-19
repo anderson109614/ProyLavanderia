@@ -1,0 +1,227 @@
+<div class="row">
+    <div class="col-md-12">
+      <div class="card ">
+  
+  
+        <div class="card-header ">
+          Repartidores
+          <button type="button"  data-toggle="modal" data-target="#myModal"
+          class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret"
+          style="float: right;" >
+          <i class="now-ui-icons ui-1_simple-add"></i>
+        </button>
+        </div>
+        <div class="card-body ">
+          <div class="table-responsive"  >
+            <table class="table">
+              <thead class=" text-primary">
+                <th>
+                  Cedula
+                </th>
+                <th>
+                  Nombre
+                </th>
+               
+                <th>
+                  Email
+                </th>
+              </thead>
+              <tbody>
+                <tr  *ngFor="let item of items | async">
+                  <td *ngIf="item.Rol=='REPARTIDOR'">
+                    {{item.Cedula}}
+                  </td>
+                  <td *ngIf="item.Rol=='REPARTIDOR'">
+                    {{item.Nombre}} {{item.Apellido}} 
+                  </td>
+                  <td *ngIf="item.Rol=='REPARTIDOR'">
+                    {{item.Email}}
+                  </td>
+                  
+                  <td *ngIf="item.Rol=='REPARTIDOR'">
+  
+                    <button  type="button"   (click)="selectEdit(item)" data-toggle="modal" data-target="#myModalEdit"
+                      class="btn btn-round btn-outline-default btn-simple btn-icon no-caret" >
+                      <i class="now-ui-icons design-2_ruler-pencil"></i>
+                    </button>
+                   
+
+  
+                  </td>
+                  
+  
+                </tr>
+  
+              </tbody>
+            </table>
+          </div>
+        </div>
+  
+  
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+  style="display: none;">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+             
+              <h2 class="modal-title">Nuevo Repartidor</h2>
+          </div>
+          <div class="modal-body">
+              <div class="row">
+                  <div class="col-lg-12">
+                      <div class="form-group">
+                          <label >Cedula</label>
+                          <div class="col-sm-8">
+                              <input type="number" class="form-control" id="txtCedulaNew"
+                                  placeholder="Cedula">
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <br>
+              <div class="row">
+                  <div class="col-lg-12">
+                      <div class="form-group">
+                          <label >Nombres</label>
+                          <div class="col-sm-8">
+                              <input type="text" class="form-control" id="txtNombresNew"
+                                  placeholder="Nombre">
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <br>
+              <div class="row">
+                  <div class="col-lg-12">
+                      <div class="form-group">
+                          <label >Apellido</label>
+                          <div class="col-sm-8">
+                              <input type="text" class="form-control" id="txtApellidoNew"
+                                  placeholder="Apellido">
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <br>
+
+              <div class="row">
+                  <div class="col-lg-12">
+                      <div class="form-group">
+                          <label >Email</label>
+                          <div class="col-sm-8">
+                              <input type="email" class="form-control" id="txtEmailNew"
+                               placeholder="Email">
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <br>
+              <div class="row">
+                  <div class="col-lg-12">
+                      <div class="form-group">
+                          <label >Contraseña</label>
+                          <div class="col-sm-8">
+                              <input type="password" class="form-control" id="txtPass"
+                               >
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <br>
+              <div class="row">
+                  <div class="col-lg-12">
+                      <div class="form-group">
+                          <label >Confirmar Contraseña</label>
+                          <div class="col-sm-8">
+                              <input type="password" class="form-control" id="txtPassConfir"
+                               >
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <br>
+             
+
+
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-primary" (click)="GuardarNewProducto()">Guardar</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+          </div>
+      </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>
+<div class="modal fade" id="myModalEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+  style="display: none;">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+             
+              <h2 class="modal-title">Editar Repartidor</h2>
+          </div>
+          <div class="modal-body">
+              <div class="row">
+                  <div class="col-lg-12">
+                      <div class="form-group">
+                          <label >Cedula</label>
+                          <div class="col-sm-8">
+                              <input type="number" class="form-control" id="txtCedulaEdit"
+                                  placeholder="Cedula">
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <br>
+              <div class="row">
+                  <div class="col-lg-12">
+                      <div class="form-group">
+                          <label >Nombres</label>
+                          <div class="col-sm-8">
+                              <input type="text" class="form-control" id="txtNombresEdit"
+                                  placeholder="Nombre">
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <br>
+              <div class="row">
+                  <div class="col-lg-12">
+                      <div class="form-group">
+                          <label >Apellido</label>
+                          <div class="col-sm-8">
+                              <input type="text" class="form-control" id="txtApellidoEdit"
+                                  placeholder="Apellido">
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <br>
+
+              <div class="row">
+                  <div class="col-lg-12">
+                      <div class="form-group">
+                          <label >Email</label>
+                          <div class="col-sm-8">
+                              <input readonly="true" type="email" class="form-control" id="txtEmailedit"
+                               placeholder="Email">
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <br>
+              
+
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-primary" (click)="EditarProductoProducto()">Guardar</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+          </div>
+      </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>

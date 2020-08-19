@@ -117,8 +117,16 @@
               "devServerTarget": "ProyLavanderia:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
-    }},
-  "defaultProject": "ProyLavanderia"
+    }
+  },
+  "defaultProject": "ProyLavanderia",
+  "cli": {
+    "analytics": "41cabb26-4c3e-4d6c-ad8b-e910759b424d"
+  }
 }

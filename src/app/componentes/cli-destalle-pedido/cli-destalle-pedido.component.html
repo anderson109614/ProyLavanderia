@@ -1,0 +1,87 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card ">
+
+
+            <div class="card-header ">
+                Detalle Pedido
+
+            </div>
+            <div class="card-body ">
+                <div class="row">
+                    <div class="col-md-4 ">
+                        <div class="form-group">
+                            <label>Fecha</label>
+                            <input type="text" value="{{fecha}}" readonly="true" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-8 ">
+                        <div class="form-group">
+                            <button style="float: right;" type="button" (click)="verPdf()"
+                    class="btn btn-round btn-outline-default btn-simple btn-icon no-caret" >
+                    PDF
+                  </button>
+                            
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class=" text-primary">
+                            <th>
+                                Prenda
+                            </th>
+                            <th>
+                                Precio
+                            </th>
+                            <th>
+                                Cant.
+                            </th>
+                            <th>
+                                Sub. Total
+                            </th>
+                            <th>
+
+                            </th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let itemP of listaPedidos ">
+                                <td>
+                                    {{itemP.Nombre}}
+                                </td>
+                                <td>
+                                    {{itemP.Cantidad}}
+                                </td>
+                                <td>
+                                    {{itemP.Precio.toFixed(2)}}$
+                                </td>
+                                <td>
+                                    {{itemP.subTotal.toFixed(2)}}$
+                                </td>
+
+                                
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row">
+                    <div class="col-md-7">
+                        
+                    </div>
+                    <div class="col-md-2 ">
+                        <div class="form-group">
+                            
+                            <input type="text" style="text-align:right;" value="{{total.toFixed(2)}} $" readonly="true" class="form-control">
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+
+
+        </div>
+    </div>
+</div>

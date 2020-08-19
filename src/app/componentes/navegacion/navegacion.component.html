@@ -1,0 +1,56 @@
+
+<div class="sidebar" data-color="orange">
+    
+    <div class="logo">
+      <a  class="simple-text logo-mini">
+        DS3 
+      </a>
+      <a  class="simple-text logo-normal">
+        LAVANDERIA {{Rol}}
+      </a>
+    </div>
+    <div class="sidebar-wrapper" id="sidebar-wrapper">
+      <ul class="nav">
+        
+        <li *ngIf="Rol=='CLIENTE'">
+          <a [routerLink]="['/ListaPedidos']">
+            <i class="now-ui-icons design_bullet-list-67"></i>
+            <p>Pedidos </p>
+          </a>
+        </li>
+        <li *ngIf="Rol=='ADMINISTRADOR'">
+          <a [routerLink]="['/AmdListaPedidos']">
+            <i class="now-ui-icons design_bullet-list-67"></i>
+            <p>Pedidos </p>
+          </a>
+        </li>
+        <li *ngIf="Rol=='ADMINISTRADOR'">
+          <a [routerLink]="['/AdmPrendas']">
+            <i class="now-ui-icons design_app"></i>
+            <p>Prendas</p>
+          </a>
+        </li>
+        <li *ngIf="Rol=='ADMINISTRADOR'">
+          <a [routerLink]="['/AdmRepartidores']">
+            <i class="now-ui-icons users_single-02"></i>
+            <p>Repartidores</p>
+          </a>
+        </li>
+        <li *ngIf="Rol=='REPARTIDOR'">
+          <a [routerLink]="['/RepListaPedidos']">
+            <i class="now-ui-icons design_bullet-list-67"></i>
+            <p>Pedidos </p>
+          </a>
+        </li>
+        <li *ngIf="Rol=='ADMINISTRADOR'" class="active-pro">
+          <a (click)="verPDF()">
+            <i class="now-ui-icons arrows-1_cloud-download-93"></i>
+            <p>Resumen Gestion</p>
+          </a>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+
+

@@ -1,0 +1,3 @@
+Logeado con firebase tools
+-ng add @angular/fire
+-npm i firebase

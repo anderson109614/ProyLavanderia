@@ -1,0 +1,141 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card ">
+
+
+            <div class="card-header ">
+                Detalle Pedido
+
+            </div>
+            <div class="card-body ">
+                <div class="row">
+                    <div class="col-md-4 ">
+                        <div class="form-group">
+                            <label>Cedula</label>
+                            <input type="text" value="{{cliente.__zone_symbol__value.Cedula}}" readonly="true" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-4 ">
+                        <div class="form-group">
+                            <label>Fecha</label>
+                            <input type="text" value="{{fecha}}" readonly="true" class="form-control">
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="row">
+                    <div class="col-md-4 ">
+                        <div class="form-group">
+                            <label>Nombre</label>
+                            <input type="text" value="{{cliente.__zone_symbol__value.Nombre}}" readonly="true" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-4 ">
+                        <div class="form-group">
+                            <label>Apellido</label>
+                            <input type="text" value="{{cliente.__zone_symbol__value.Apellido}}" readonly="true" class="form-control">
+                        </div>
+                    </div>
+                   
+
+                </div>
+                <div class="row">
+                    <div class="col-md-8 ">
+                        <div class="form-group">
+                            <label>Direccion</label>
+                            <input type="text" value="{{cliente.__zone_symbol__value.Direccion}}" readonly="true" class="form-control">
+                        </div>
+                    </div>
+                    
+                   
+
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <h3>Repartidor</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 ">
+                        <div class="form-group">
+                            <label>Cedula</label>
+                            <input type="text" value="{{CedulaRepartidor}}" readonly="true" class="form-control">
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+                <div class="row">
+                    <div class="col-md-8 ">
+                        <div class="form-group">
+                            <label>Nombre</label>
+                            <input type="text" value="{{NombreRepartidor}}" readonly="true" class="form-control">
+                        </div>
+                    </div>
+                    
+                   
+
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class=" text-primary">
+                            <th>
+                                Prenda
+                            </th>
+                            <th>
+                                Precio
+                            </th>
+                            <th>
+                                Cant.
+                            </th>
+                            <th>
+                                Sub. Total
+                            </th>
+                            <th>
+
+                            </th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let itemP of listaDetalle ">
+                                <td>
+                                    {{itemP.Nombre}}
+                                </td>
+                                <td>
+                                    {{itemP.Cantidad}}
+                                </td>
+                                <td>
+                                    {{itemP.Precio.toFixed(2)}}$
+                                </td>
+                                <td>
+                                    {{itemP.subTotal.toFixed(2)}}$
+                                </td>
+
+                                
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row">
+                    <div class="col-md-7">
+                        
+                    </div>
+                    <div class="col-md-2 ">
+                        <div class="form-group">
+                            
+                            <input type="text" style="text-align:right;" value="{{total.toFixed(2)}} $" readonly="true" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <button *ngIf="Estado!='ENTREGADO'" style="float: right;" class="btn btn-primary btn-block" (click)="guardar()">ENTREGAR</button>
+                </div>
+               
+            </div>
+
+
+        </div>
+    </div>
+</div>

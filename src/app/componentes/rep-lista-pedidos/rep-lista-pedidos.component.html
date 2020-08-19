@@ -1,0 +1,76 @@
+<div class="row">
+    <div class="col-md-12">
+      <div class="card ">
+  
+  
+        <div class="card-header ">
+          Lista Pedidos
+          <!--
+          <button type="button" [routerLink]="['/NewPedidos']"
+          class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret"
+          style="float: right;" >
+          <i class="now-ui-icons ui-1_simple-add"></i>
+        </button>-->
+        </div>
+        <div class="card-body ">
+          <div class="table-responsive" *ngIf="items$ | async; let items; " >
+            <table class="table">
+              <thead class=" text-primary">
+                <th>
+                  Fecha
+                </th>
+                <th>
+                  Cedula
+                </th>
+                <th>
+                  Nombre
+                </th>
+                <th>
+                  Total
+                </th>
+                <th>
+                  Estado
+                </th>
+                <th>
+                  
+                </th>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of ListaPedidosCli">
+                  <td>
+                    {{ item.data.payload.val().Fecha }}
+                  </td>
+                  <td>
+                    {{ item.User.__zone_symbol__value.Cedula }}
+                  </td>
+                  <td>
+                    {{ item.User.__zone_symbol__value.Nombre }} {{ item.User.__zone_symbol__value.Apellido }}
+                  </td>
+                  <td >
+                    {{ item.data.payload.val().Total.toFixed(2) }} $
+                  </td>
+                  <td>
+                    <span class="badge badge-success">{{ item.data.payload.val().Estado }}</span>
+                  </td>
+                  
+                  <td>
+  
+                    <button  [routerLink]="['/RepAsignarRepartidor/',item.data.payload.key]" type="button"
+                      class="btn btn-round btn-outline-default btn-simple btn-icon no-caret" >
+                      <i class="now-ui-icons business_badge"></i>
+                    </button>
+  
+  
+                  </td>
+  
+                </tr>
+  
+              </tbody>
+            </table>
+          </div>
+        </div>
+  
+  
+      </div>
+    </div>
+  </div>
